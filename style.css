@@ -20,6 +20,9 @@ body {
     max-width: 600px;
     box-sizing: border-box;
     position: relative; /* Para posicionar elementos internos si es necesario */
+    max-height: 95vh; /* Limita la altura máxima de la tarjeta al 95% de la altura de la pantalla */
+    overflow-y: auto; /* Añade una barra de desplazamiento vertical DENTRO de la tarjeta si el contenido es más largo */
+    -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en dispositivos iOS */
 }
 
 /* Clases para efectos neón */
