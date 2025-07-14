@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Fisiológico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Blinker:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="trivia-container">
+        <div id="start-screen" class="screen active">
+            <h1 class="neon-text">Desafío Fisiológico</h1>
+            <div class="logo-placeholder">
+                <img src="mi_logo.png" alt="Logo de Fisiología" class="logo-image">
+            </div>
+            <p class="description-text">Una trivia ÉPICA de Fisiología: Respiratoria, Renal, Equilibrio ácido - base</p>
+            <p class="motto-text">¡Prepárense para poner a prueba sus neuronas!</p>
+            <div class="author-info">
+                <p>Elaborado por:</p>
+                <p class="author-name">Dr. Javier Palma</p>
+                <p class="author-handle">@drjavierpalmac</p>
+                <p class="author-affiliation">Docente de la Cátedra de Fisiología Humana</p>
+                <p class="author-affiliation">UNERG - Núcleo Monagas</p>
+            </div>
+            <button id="start-button" class="neon-button">Iniciar Desafío</button>
+        </div>
+
+        <div id="selection-screen" class="screen">
+            <h2 class="neon-text">Selecciona una Ronda</h2>
+            <p class="motto-text">Elige cómo quieres poner a prueba tus conocimientos:</p>
+            <button id="start-all-rounds-button" class="neon-button">Todas las Rondas</button>
+            <button id="start-respiratory-button" class="neon-button">Fisiología Respiratoria</button>
+            <button id="start-renal-button" class="neon-button">Fisiología Renal</button>
+            <button id="start-acid-base-button" class="neon-button">Equilibrio Ácido-Base</button>
+        </div>
+
+        <div id="respiratory-intro-screen" class="screen">
+            <h2 class="neon-text">RONDAS DE RESPIRACIÓN</h2>
+            <p class="motto-text">¡Inhalando conocimiento, exhalando dudas!</p>
+            <div class="topic-box">
+                <p>Temas a cubrir:</p>
+                <ul>
+                    <li>Mecánica Respiratoria</li>
+                    <li>Intercambio Gaseoso</li>
+                    <li>Transporte de Gases</li>
+                    <li>Control de la Respiración</li>
+                </ul>
+                <p class="instruction-text">¡Que el aire fluya a su favor!</p>
+            </div>
+            <button id="begin-respiratory-button" class="neon-button">Comenzar Ronda Respiratoria</button>
+        </div>
+
+        <div id="renal-intro-screen" class="screen">
+            <h2 class="neon-text">RONDAS DE RIÑONES 💧</h2>
+            <p class="motto-text">¡Los maestros del equilibrio hídrico y electrolítico!</p>
+            <div class="topic-box">
+                <p>Prepárense para las preguntas sobre:</p>
+                <ul>
+                    <li>Filtración Glomerular</li>
+                    <li>Reabsorción y Secreción Tubular</li>
+                    <li>Regulación del Volumen y la Presión</li>
+                    <li>Hormonas Renales</li>
+                </ul>
+                <p class="instruction-text">¡A filtrar las respuestas correctas!</p>
+            </div>
+            <button id="begin-renal-button" class="neon-button">Comenzar Ronda Renal</button>
+        </div>
+
+        <div id="acid-base-intro-screen" class="screen">
+            <h2 class="neon-text">Equilibrio Ácido-Base ⚖️</h2>
+            <p class="motto-text">¡Mantén el pH en el punto justo!</p>
+            <div class="topic-box">
+                <p>Prepárense para sumergirse en:</p>
+                <ul>
+                    <li>Conceptos Fundamentales de Ácido-Base</li>
+                    <li>Amortiguadores Sanguíneos y Mecanismos de Compensación</li>
+                    <li>Trastornos del Equilibrio Ácido-Base</li>
+                    <li>Interpretación de Gasometría Arterial</li>
+                </ul>
+                <p class="instruction-text">¡A balancear esas concentraciones de iones!</p>
+            </div>
+            <button id="begin-acid-base-button" class="neon-button">Comenzar Ronda de Equilibrio Ácido-Base</button>
+        </div>
+
+        <div id="question-screen" class="screen">
+            <div class="question-header">
+                <button id="home-button-question" class="neon-button home-button-style">🏠 Inicio</button>
+                <span id="question-number" class="neon-text-light">Pregunta 1</span>
+                <div class="timer-box">
+                    <span id="timer" class="neon-text-light">60</span> <svg class="timer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.9 13.9L11 11.42V7h2v4.58l1.9 4.5L12.9 15.9z"/>
+                    </svg>
+                </div>
+            </div>
+            <p id="question-text" class="question-text"></p>
+            <div id="options-container" class="options-container">
+                </div>
+            <div id="feedback" class="feedback-text"></div>
+            <div id="rationale-text" class="rationale-text"></div>
+            <button id="next-button" class="neon-button next-button" style="display: none;">Siguiente Pregunta</button>
+        </div>
+
+        <div id="results-screen" class="screen">
+            <h2 class="neon-text">¡Trivia Terminada!</h2>
+            <p class="score-text">Tu puntuación: <span id="final-score" class="neon-text-light">0</span>/<span id="total-questions" class="neon-text-light">0</span></p>
+            <p id="final-message" class="final-message"></p>
+            <button id="restart-button" class="neon-button">Jugar de Nuevo</button>
+            <button id="home-button-results" class="neon-button back-to-home">Inicio</button>
+        </div>
+    </div>
+
+    <audio id="question-music" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
